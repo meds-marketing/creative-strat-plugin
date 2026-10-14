@@ -36,3 +36,11 @@ Every write requires an `idempotencyKey`. Keep the key and exact inputs across u
 Read access is the default. Internal authoring requires `cs:write` and current internal-role permission. Private draft metadata requires separately consented `cs:intake.read`; this tool exposes no draft body or send action. Explain a permission error and direct the person to reauthorize in their client only when needed.
 
 Linked Google profiles share the same Creative Strat user permissions. Sign-in linking does not connect Gmail or Drive: inbox/provider consent and sync are managed separately in Integrations. These tools cannot send email, write Sheets, export to Drive, publish, generate media or replay provider jobs. Do not present another provider's tools as Creative Strat capabilities. Never manufacture approval or bypass a client denial.
+
+## Imported scripts and assignments
+
+Start script discovery with `cs_list_scripts` or `cs_search`. Internal users can see explicitly organization-owned standalone imports without a concept, package or brand classification. Do not apply a brand filter to an unclassified imported library. Resolve registered Google Docs URLs/file IDs through `cs_resolve_reference` or `cs_get_script`; never substitute a concept search for script discovery. Read the complete normalized app document, exact revision, source freshness and saved annotations before reviewing or editing. A local save does not export to Google Docs.
+
+Use `cs_list_assignments` and `cs_get_assignment` for saved production assignments, and `cs_list_influencer_briefs` for the IMS brief workflow. Monthly Tracker rows, held briefs and saved assignments are distinct sources; report each source explicitly. Package and concept links may be absent. Creator roster entries are not approved brand memberships; create assignments only with an actual approved membership.
+
+For performance, report the returned coverage dates and attribution lens. Historical provider report facts do not establish current-month results. Use operations receipts to confirm durable saves and retries, including standalone assignments.

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0
+
+- Restore app/MCP parity for standalone Google Docs scripts and IMS assignments.
+- Add paginated script discovery and the actual influencer brief workflow.
+- Share organization/brand permissions, document normalization and revisions with the app.
+- Preserve comments, suggestions, conflict recovery, retries and standalone assignment receipts.
+- Expose dated provider performance evidence and distinguish creator rosters from approved memberships.
+
 ## 0.3.0
 
 - Add month-aware production status from the actual influencer Tracker workbooks, with live reads, paginated creator rows and explicit snapshot freshness.

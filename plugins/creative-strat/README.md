@@ -59,3 +59,7 @@ Update the marketplace in your client, then update/reinstall `creative-strat@cre
 If you previously added the private application repository as the `creative-strat` marketplace, it can also include other plugins. Use a clean client setup or migrate those other plugin sources before replacing that shared marketplace. Existing authenticated connections need no new Google grant solely for this public packaging release.
 
 Use the hosted connection page for workspace access questions. Open a GitHub issue for plugin setup problems with your client version and sanitized error message; omit tokens, private script bodies and creator contact details.
+
+## App data parity (0.4.0)
+
+Script discovery includes organization-owned standalone imports. Registered Google Docs links resolve to the saved app document; reviews and edits use its exact revision. Saved assignments and influencer briefs are separate tools from monthly Tracker production. Performance evidence includes actual date coverage. Local script saves do not export to Google Docs or send email.
