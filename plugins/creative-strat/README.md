@@ -33,6 +33,10 @@ claude mcp login plugin:creative-strat:creative-strat
 
 Start a new session after installation. Read the creative-strat skill when working in the workspace. For a manual connection, use `claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp`, then `claude mcp login creative-strat`.
 
+## Monthly status (0.3.0)
+
+Ask "What is the latest status for October?". The agent uses `cs_get_production_status` with the selected YYYY-MM month to read the real influencer Tracker. It returns full-month counts, paginated rows, source links and live retrieval times. Existing assignment tables are a separate workflow and may be empty while the Tracker contains production. Internal role is required. A dated snapshot fallback cannot verify the latest status; test tabs are excluded. Recorded approval and brief-sent fields do not prove asset delivery.
+
 ## Access and example tasks
 
 Start with read access. Ask “What needs attention for BlueChew?”, “Show the production overview”, or “Find the script for this assignment.” For authoring, reauthorize the connection with `cs:read cs:write` through your client's supported OAuth configuration, then inspect the consent screen. Codex's explicit path is `codex mcp login creative-strat --scopes cs:read,cs:write` for a direct connection. Never assume editing was granted until the tool catalog/context confirms it. Intake metadata uses a separate `cs:intake.read` scope.

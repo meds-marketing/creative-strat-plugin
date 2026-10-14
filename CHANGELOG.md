@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0
+
+- Add month-aware production status from the actual influencer Tracker workbooks, with live reads, paginated creator rows and explicit snapshot freshness.
+- Include tracker production alongside assignment records in the workspace and optional overview.
+- Exclude test tabs, preserve internal-only Tracker access and distinguish unavailable sources from empty months.
+- Server protocol is 1.3.0. Existing Google grants and stable connection identifiers remain valid.
+
 ## 0.2.2
 
 - Display the plugin as `meds-marketing`, retaining existing package, server and skill identifiers.
