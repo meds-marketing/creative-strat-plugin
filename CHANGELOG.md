@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- Display the plugin as `meds-marketing`, retaining existing package, server and skill identifiers.
+- Bundle the Meds Marketing brand logo as a PNG and reference it for both the listing and composer icon.
+- Validate icon references, PNG dimensions and matching presentation metadata before export.
+
 ## 0.2.1
 
 - Publish the Creative Strat plugin and Codex/Claude Code marketplaces in a dedicated public repository.

@@ -1,6 +1,6 @@
 {
   "name": "creative-strat",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Use Creative Strat to inspect production issues, propose script revisions and create internal creative records.",
   "author": {
     "name": "Meds Marketing"
@@ -8,7 +8,7 @@
   "homepage": "https://creator.meds-marketing.com/integrations/agent-clients",
   "skills": "./skills/",
   "interface": {
-    "displayName": "Creative Strat",
+    "displayName": "meds-marketing",
     "shortDescription": "Manage creative production",
     "longDescription": "Inspect production issues, review scripts and create internal creative records with your current workspace permissions.",
     "developerName": "Meds Marketing",
@@ -19,7 +19,7 @@
       "Interactive"
     ],
     "defaultPrompt": "What needs attention in my creative production workspace?",
-    "logo": "./assets/icon.svg",
-    "composerIcon": "./assets/icon.svg"
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
   }
 }

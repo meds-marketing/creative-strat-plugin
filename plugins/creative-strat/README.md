@@ -1,10 +1,12 @@
-# Creative Strat
+# meds-marketing
 
 Connect your agent to the creative-operations workspace. Read production issues, inspect scripts and performance, save requested internal records, and review script proposals.
 
 [GitHub](https://github.com/meds-marketing/creative-strat-plugin) · [Releases and ZIP download](https://github.com/meds-marketing/creative-strat-plugin/releases/latest) · [Connection setup](https://creator.meds-marketing.com/integrations/agent-clients)
 
 Endpoint: https://creator.meds-marketing.com/mcp
+
+The plugin is displayed as `meds-marketing`. Its package, MCP server and workflow skill identifiers remain `creative-strat` so existing installations and Google connections continue to work. The Meds Marketing logo is bundled as `assets/icon.png` and referenced by both listing and composer icon fields in the portable and Codex manifests.
 
 ## Codex
 
