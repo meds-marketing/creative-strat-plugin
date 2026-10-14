@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "creative-strat": {
+      "type": "http",
+      "url": "https://creator.meds-marketing.com/mcp"
+    }
+  }
+}

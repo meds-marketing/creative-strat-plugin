@@ -1,0 +1,20 @@
+{
+  "name": "creative-strat",
+  "interface": {
+    "displayName": "Creative Strat"
+  },
+  "plugins": [
+    {
+      "name": "creative-strat",
+      "source": {
+        "source": "local",
+        "path": "./plugins/creative-strat"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

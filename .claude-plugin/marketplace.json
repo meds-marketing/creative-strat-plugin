@@ -1,0 +1,15 @@
+{
+  "name": "creative-strat",
+  "owner": {
+    "name": "Meds Marketing"
+  },
+  "description": "Creative Strat workflows for agent clients.",
+  "plugins": [
+    {
+      "name": "creative-strat",
+      "source": "./plugins/creative-strat",
+      "description": "Creative strategy, production triage and script review with your workspace permissions.",
+      "version": "0.2.1"
+    }
+  ]
+}

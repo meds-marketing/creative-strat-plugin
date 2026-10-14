@@ -1,0 +1,9 @@
+{
+  "name": "creative-strat",
+  "version": "0.2.1",
+  "description": "Use Creative Strat to inspect production issues, propose script revisions and create internal creative records.",
+  "author": {
+    "name": "Meds Marketing"
+  },
+  "homepage": "https://creator.meds-marketing.com/integrations/agent-clients"
+}
