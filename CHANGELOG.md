@@ -1,11 +1,5 @@
 # Changelog
 
-## 0.4.1
-
-- Bind the BlueChew workflow to its existing registered ChatGPT cloud app.
-- Keep direct MCP templates outside the imported workflow directory.
-- Preserve workflow identity, skill, logo and separate direct-client authentication.
-
 ## 0.4.0
 
 - Restore app/MCP parity for standalone Google Docs scripts and IMS assignments.
