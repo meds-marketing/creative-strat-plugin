@@ -8,15 +8,20 @@ Endpoint: https://creator.meds-marketing.com/mcp
 
 The plugin is displayed as `meds-marketing`. Its package, MCP server and workflow skill identifiers remain `creative-strat` so existing installations and Google connections continue to work. The Meds Marketing logo is bundled as `assets/icon.png` and referenced by both listing and composer icon fields in the portable and Codex manifests.
 
+## ChatGPT web, desktop and mobile
+
+Install the existing meds-marketing workflow from the BlueChew directory. It uses the existing meds-marketing cloud connection at the endpoint above. Workspace approval and each member's OAuth are separate requirements. Mobile availability and embedded UI must be checked in the actual client. This binding does not transfer Google credentials to Codex, Claude or Cursor.
+
 ## Codex
 
 ```sh
 codex plugin marketplace add meds-marketing/creative-strat-plugin
 codex plugin add creative-strat@creative-strat
+codex mcp add creative-strat --url https://creator.meds-marketing.com/mcp
 codex mcp login creative-strat --scopes cs:read
 ```
 
-Complete Google OAuth when prompted. If this client does not expose plugin-server OAuth login, configure a direct connection instead (do not keep duplicate connections enabled):
+The marketplace workflow uses a ChatGPT cloud app binding. Direct clients authenticate separately. If a connection named creative-strat already exists, reuse it and skip mcp add. Do not keep duplicate servers enabled. For a connection without the workflow package:
 
 ```sh
 codex mcp add creative-strat --url https://creator.meds-marketing.com/mcp
@@ -28,7 +33,8 @@ codex mcp login creative-strat --scopes cs:read
 ```sh
 claude plugin marketplace add meds-marketing/creative-strat-plugin
 claude plugin install creative-strat@creative-strat --scope user
-claude mcp login plugin:creative-strat:creative-strat
+claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp
+claude mcp login creative-strat
 ```
 
 Start a new session after installation. Read the creative-strat skill when working in the workspace. For a manual connection, use `claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp`, then `claude mcp login creative-strat`.
@@ -45,7 +51,7 @@ Connect with any Google profile explicitly linked to your Creative Strat user. L
 
 Chat is complete in tools-only clients; MCP Apps rendering depends on the host. No email sending, Sheets writes, publishing or media generation is included. A package installation is not proof of an authenticated connection. Reconnect/restart a client with a stale catalog after a server or package update.
 
-The public repository contains only the plugin, client marketplaces and setup instructions. Application/backend code and internal operational documentation are maintained separately. Local installation uses the same commands with the public repository checkout path as marketplace source. No credentials or registered ChatGPT app binding are included.
+The public repository contains only the plugin, client marketplaces and setup instructions. Application/backend code and internal operational documentation are maintained separately. Local installation uses the same commands with the public repository checkout path as marketplace source. No credentials are included. The imported workflow folder binds the existing BlueChew ChatGPT app. Direct MCP templates are in packaging/direct-client, outside that folder. The downloadable direct-client ZIP retains its MCP declarations and omits the ChatGPT binding.
 
 ## Inline script review (0.2.0)
 

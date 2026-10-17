@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "creative-strat",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Use Creative Strat to inspect production issues, propose script revisions and create internal creative records.",
   "author": {
     "name": "Meds Marketing"
@@ -23,7 +23,8 @@
         "defaultPrompt": "What needs attention in my creative production workspace?",
         "logo": "./assets/icon.png",
         "composerIcon": "./assets/icon.png"
-      }
+      },
+      "apps": "./.app.json"
     }
   }
 }
