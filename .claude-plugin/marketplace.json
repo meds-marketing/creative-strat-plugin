@@ -7,9 +7,9 @@
   "plugins": [
     {
       "name": "creative-strat",
-      "source": "./plugins/creative-strat",
+      "source": "./plugins/creative-strat-direct",
       "description": "Creative strategy, production triage and script review with your workspace permissions.",
-      "version": "0.4.2"
+      "version": "0.4.5"
     }
   ]
 }

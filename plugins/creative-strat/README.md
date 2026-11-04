@@ -8,15 +8,20 @@ Endpoint: https://creator.meds-marketing.com/mcp
 
 The plugin is displayed as `meds-marketing`. Its package, MCP server and workflow skill identifiers remain `creative-strat` so existing installations and Google connections continue to work. The Meds Marketing logo is bundled as `assets/icon.png` and referenced by both listing and composer icon fields in the portable and Codex manifests.
 
+## ChatGPT web, desktop and mobile
+
+Install the existing meds-marketing workflow from the BlueChew directory. It uses the existing meds-marketing cloud connection at the endpoint above. Workspace approval and each member's OAuth are separate requirements. Mobile availability and embedded UI must be checked in the actual client. This binding does not transfer Google credentials to Codex, Claude or Cursor.
+
 ## Codex
 
 ```sh
 codex plugin marketplace add meds-marketing/creative-strat-plugin
 codex plugin add creative-strat@creative-strat
+codex mcp add creative-strat --url https://creator.meds-marketing.com/mcp
 codex mcp login creative-strat --scopes cs:read
 ```
 
-Complete Google OAuth when prompted. If this client does not expose plugin-server OAuth login, configure a direct connection instead (do not keep duplicate connections enabled):
+The OpenAI marketplace workflow uses a ChatGPT cloud app binding. The Claude marketplace selects the generated direct-client package with its own HTTPS MCP declaration. Direct clients authenticate separately. If a connection named creative-strat already exists, reuse it and skip mcp add. Do not keep duplicate servers enabled. For a connection without the workflow package:
 
 ```sh
 codex mcp add creative-strat --url https://creator.meds-marketing.com/mcp
@@ -28,10 +33,17 @@ codex mcp login creative-strat --scopes cs:read
 ```sh
 claude plugin marketplace add meds-marketing/creative-strat-plugin
 claude plugin install creative-strat@creative-strat --scope user
-claude mcp login plugin:creative-strat:creative-strat
+claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp
+claude mcp login creative-strat
 ```
 
 Start a new session after installation. Read the creative-strat skill when working in the workspace. For a manual connection, use `claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp`, then `claude mcp login creative-strat`.
+
+## Cursor
+
+Merge packaging/direct-client/cursor.mcp.json into your existing project .cursor/mcp.json or user ~/.cursor/mcp.json. Preserve other servers. Connect the server through Cursor's MCP settings using your own Google account. The ChatGPT app binding does not authenticate Cursor. Keep the canonical workflow skill available through your client's supported skill installation.
+
+The direct-client templates also include codex.config.toml and .mcp.json for Codex and Claude. Reuse an existing connection to the canonical endpoint rather than enabling duplicate servers. The direct-client ZIP remains available from Releases.
 
 ## Monthly status (0.3.0)
 
@@ -41,11 +53,15 @@ Ask "What is the latest status for October?". The agent uses `cs_get_production_
 
 Start with read access. Ask “What needs attention for BlueChew?”, “Show the production overview”, or “Find the script for this assignment.” For authoring, reauthorize the connection with `cs:read cs:write` through your client's supported OAuth configuration, then inspect the consent screen. Codex's explicit path is `codex mcp login creative-strat --scopes cs:read,cs:write` for a direct connection. Never assume editing was granted until the tool catalog/context confirms it. Intake metadata uses a separate `cs:intake.read` scope.
 
+Frame.io access uses the same MCP endpoint and separate consent scopes. Request `cs:read,cs:frameio.read` for individual Frame.io reads; add `cs:frameio.comment` for requested comments or `cs:frameio.analyze` for enabled analysis. Connect your own Adobe account using the URL returned by the Frame.io connection-status tool. Availability depends on server configuration and the account's actual Frame.io permissions. Existing clients retain their existing grants until reauthorized.
+
+Internal users can search the organization Media Index and read version-specific timeline pages using the product MCP. Optional file-linkage and report-coverage context does not establish performance for a particular delivered video revision. The individual Frame.io search uses a separate project-level permission boundary.
+
 Connect with any Google profile explicitly linked to your Creative Strat user. Linking another sign-in does not connect its inbox. Manage clients and disconnect at https://creator.meds-marketing.com/integrations/agent-clients. Browser logout does not revoke agent grants.
 
-Chat is complete in tools-only clients; MCP Apps rendering depends on the host. No email sending, Sheets writes, publishing or media generation is included. A package installation is not proof of an authenticated connection. Reconnect/restart a client with a stale catalog after a server or package update.
+Chat is complete in tools-only clients; MCP Apps rendering depends on the host. A separately consented Name Builder reservation can append a specifically approved Partnerships row. No email sending, media export, publishing or media generation is included. A package installation is not proof of an authenticated connection. Reconnect/restart a client with a stale catalog after a server or package update.
 
-The public repository contains only the plugin, client marketplaces and setup instructions. Application/backend code and internal operational documentation are maintained separately. Local installation uses the same commands with the public repository checkout path as marketplace source. No credentials or registered ChatGPT app binding are included.
+The public repository contains only the plugin, client marketplaces and setup instructions. Application/backend code and internal operational documentation are maintained separately. Local installation uses the same commands with the public repository checkout path as marketplace source. No credentials are included. The imported workflow folder binds the existing BlueChew ChatGPT app. Claude uses plugins/creative-strat-direct; additional direct MCP templates are in packaging/direct-client, outside the cloud folder. The downloadable direct-client ZIP retains its MCP declarations and omits the ChatGPT binding.
 
 ## Inline script review (0.2.0)
 
@@ -63,3 +79,11 @@ Use the hosted connection page for workspace access questions. Open a GitHub iss
 ## App data parity (0.4.0)
 
 Script discovery includes organization-owned standalone imports. Registered Google Docs links resolve to the saved app document; reviews and edits use its exact revision. Saved assignments and influencer briefs are separate tools from monthly Tracker production. Performance evidence includes actual date coverage. Local script saves do not export to Google Docs or send email.
+
+
+### Intake and naming
+
+With `cs:read cs:intake.read`, use `cs_list_intake`, `cs_get_intake_review`, `cs_get_intake_naming_options` and `cs_preview_intake_name` for stored intake context and a proposed Sheet row. Reserving the exact approved row additionally requires `cs:naming.write` and current internal membership. Existing grants are unchanged; request the additional scope only when this workflow is needed. Generic `cs:write` does not grant Sheets writes. `cs_reserve_intake_name` requires the candidate revision, previewed base name, specific approval and a stable command key. Check the durable candidate receipt through `cs_get_intake_review` after uncertainty. Reservation does not accept or export media or update Tracker.
+
+
+The direct Claude package pins `cs:read cs:write cs:intake.read cs:naming.write` so the consent flow covers the advertised internal-authoring and intake-naming workflows. Review and approve those permissions in your own account; upgrading files does not broaden an existing grant. A read-only connection can instead pin `cs:read`. Individual Frame.io read, comment and analysis permissions remain separate and are not requested by this package.

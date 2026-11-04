@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.4.5
+
+- Export separate cloud and direct Claude packages with the same canonical skill.
+- Pin the four internal workflow scopes for Claude OAuth consent; preserve separate Frame.io grants.
+- Refresh client package versions and installation guidance.
+
+## 0.4.4 (prepared locally)
+
+- Add intake context, naming options and exact-row preview guidance.
+- Add separately consented, specifically approved Name Builder reservation with durable recovery.
+- Keep media acceptance, exports, Tracker updates and messaging outside the naming operation.
+
+## 0.4.3 (prepared; requires workspace app approval)
+
+- Bind the BlueChew workflow to its existing registered ChatGPT cloud app.
+- Keep direct MCP templates outside the imported workflow directory.
+- Preserve workflow identity, skill, logo and separate direct-client authentication.
+
 ## 0.4.0
 
 - Restore app/MCP parity for standalone Google Docs scripts and IMS assignments.

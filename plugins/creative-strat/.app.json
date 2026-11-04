@@ -1,1 +1,8 @@
-{"apps":{}}
+{
+  "apps": {
+    "creative-strat": {
+      "id": "asdk_app_6ad2e49bba8c8191b32e9fc90f24b19b",
+      "required": true
+    }
+  }
+}
