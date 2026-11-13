@@ -4,7 +4,7 @@
       "type": "http",
       "url": "https://creator.meds-marketing.com/mcp",
       "oauth": {
-        "scopes": "cs:read cs:write cs:intake.read cs:naming.write"
+        "scopes": "cs:read cs:write cs:intake.read cs:naming.write cs:media.download cs:frameio.read"
       }
     }
   }

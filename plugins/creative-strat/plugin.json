@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "creative-strat",
-  "version": "0.4.5",
-  "description": "Use Creative Strat to inspect production issues, propose script revisions and create internal creative records.",
+  "version": "0.6.0",
+  "description": "Frame.io, media search, creative analytics and production operations through Meds Marketing.",
   "author": {
     "name": "Meds Marketing"
   },
@@ -10,9 +10,9 @@
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "meds-marketing",
-        "shortDescription": "Manage creative production",
-        "longDescription": "Inspect production issues, review scripts and create internal creative records with your current workspace permissions.",
+        "displayName": "Meds Marketing",
+        "shortDescription": "Media and creative operations",
+        "longDescription": "Search authorized media, browse Frame.io, prepare approved original downloads, inspect creative performance, and manage scripts and production records. Use AdCut for editing and rendering.",
         "developerName": "Meds Marketing",
         "category": "Productivity",
         "capabilities": [

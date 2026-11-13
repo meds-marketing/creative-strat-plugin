@@ -1,12 +1,12 @@
-# meds-marketing
+# Meds Marketing
 
-Connect your agent to the creative-operations workspace. Read production issues, inspect scripts and performance, save requested internal records, and review script proposals.
+Connect your agent to Frame.io, the media library and the creative-operations workspace. Read production issues, inspect scripts and performance, save requested internal records, and review script proposals.
 
 [GitHub](https://github.com/meds-marketing/creative-strat-plugin) · [Releases and ZIP download](https://github.com/meds-marketing/creative-strat-plugin/releases/latest) · [Connection setup](https://creator.meds-marketing.com/integrations/agent-clients)
 
 Endpoint: https://creator.meds-marketing.com/mcp
 
-The plugin is displayed as `meds-marketing`. Its package, MCP server and workflow skill identifiers remain `creative-strat` so existing installations and Google connections continue to work. The Meds Marketing logo is bundled as `assets/icon.png` and referenced by both listing and composer icon fields in the portable and Codex manifests.
+The plugin is displayed as `Meds Marketing`. Its package, MCP server and workflow skill identifiers remain `creative-strat` so existing installations and Google connections continue to work. The Meds Marketing logo is bundled as `assets/icon.png` and referenced by both listing and composer icon fields in the portable and Codex manifests.
 
 ## ChatGPT web, desktop and mobile
 
@@ -17,7 +17,6 @@ Install the existing meds-marketing workflow from the BlueChew directory. It use
 ```sh
 codex plugin marketplace add meds-marketing/creative-strat-plugin
 codex plugin add creative-strat@creative-strat
-codex mcp add creative-strat --url https://creator.meds-marketing.com/mcp
 codex mcp login creative-strat --scopes cs:read
 ```
 
@@ -33,8 +32,7 @@ codex mcp login creative-strat --scopes cs:read
 ```sh
 claude plugin marketplace add meds-marketing/creative-strat-plugin
 claude plugin install creative-strat@creative-strat --scope user
-claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp
-claude mcp login creative-strat
+claude mcp login plugin:creative-strat:creative-strat
 ```
 
 Start a new session after installation. Read the creative-strat skill when working in the workspace. For a manual connection, use `claude mcp add --transport http --scope user creative-strat https://creator.meds-marketing.com/mcp`, then `claude mcp login creative-strat`.
@@ -87,3 +85,9 @@ With `cs:read cs:intake.read`, use `cs_list_intake`, `cs_get_intake_review`, `cs
 
 
 The direct Claude package pins `cs:read cs:write cs:intake.read cs:naming.write` so the consent flow covers the advertised internal-authoring and intake-naming workflows. Review and approve those permissions in your own account; upgrading files does not broaden an existing grant. A read-only connection can instead pin `cs:read`. Individual Frame.io read, comment and analysis permissions remain separate and are not requested by this package.
+
+## Consolidated media workflows, version 0.6.0
+
+This connection includes internal organization `frameio_*` browsing, exact-name and semantic research, variants, historical launch reconciliation, CSV exports and protected original downloads. General media search remains `cs_search_media`. Individual Adobe tools remain `cs_frameio_*` and never inherit organization access. Original downloads require `cs:media.download` plus approval of exact files. Default direct-client scope requests now include that grant and `cs:frameio.read`; existing grants need reauthorization. Neither grant approves a provider comment or media analysis job.
+
+Use one Meds connection and one AdCut connection. Remove old standalone Frame.io client entries only after the Meds catalog and reads work. The old Frame.io endpoint is retained for compatibility with other clients; it is not needed for new installations. Keep local editor connections for explicitly local work and remove obsolete proof tunnels.

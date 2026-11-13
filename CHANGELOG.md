@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.0
+
+- Consolidate Frame.io, media research and creative operations on Meds Marketing.
+- Preserve organization-library and individual Adobe access boundaries.
+- Add separately consented original downloads and retain exact-file approval.
+- Route editing and rendering to AdCut, without duplicate MCP setup steps.
+
 ## 0.4.5
 
 - Export separate cloud and direct Claude packages with the same canonical skill.
