@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.0
+
+Shared Motion interactive charts, metric switching, data tables and authorized exact-ad image/video previews in MCP Apps. Portable host themes and responsive layout. Visual analytics requests select the display tools.
+
 ## 0.6.0
 
 - Consolidate Frame.io, media research and creative operations on Meds Marketing.

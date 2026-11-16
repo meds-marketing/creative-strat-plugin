@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "creative-strat",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Frame.io, media search, creative analytics and production operations through Meds Marketing.",
   "author": {
     "name": "Meds Marketing"
